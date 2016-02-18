@@ -160,7 +160,7 @@ function gscGetSpreadsheetColumnHeadersAndTypes(spreadsheet)
         return null;
     }
 
-    var colHeaders = gscGetSpreadsheetColumnHeaders(spreadsheet);
+    var colHeaders = gscGetSpreadsheetColumnHeaders(spreadsheet, userHeaderRow); //userHeaderRow is added by Kyaw
     //Look at each
     var colHeaderTypes = gscGetSpreadsheetColumnTypes(spreadsheet, colHeaders.length, 2, maxParseRow);
 
@@ -232,7 +232,7 @@ function gscGetSpreadsheetTypeForSingleColumn(spreadsheet, column, startScanRow,
 
 //Gets the names of all the columns in the 1st row of the spreadsheet
 //[ret] Array of strings
-function gscGetSpreadsheetColumnHeaders(spreadsheet)
+function gscGetSpreadsheetColumnHeaders(spreadsheet, userHeaderRow)
 {
     localAssert(!gscIsNullOrUndefined(spreadsheet), "no spreadsheet");
 
