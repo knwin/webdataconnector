@@ -36,7 +36,7 @@ function gscTestSheetParse()
 */
 
 //Generate an array of row objects for the extract generation
-function gscSpreadsheetToNameKeyArray(spreadsheet, columnInfo)
+function gscSpreadsheetToNameKeyArray(spreadsheet, columnInfo, userHeaderRow)
 {
     localAssert(!gscIsNullOrUndefined(spreadsheet), "no spreadsheet");
     localAssert(!gscIsNullOrUndefined(columnInfo), "no column info");
@@ -51,7 +51,7 @@ function gscSpreadsheetToNameKeyArray(spreadsheet, columnInfo)
     var arrOut = []; //Array
 
     //For every row
-    for (var idxRow = 2; idxRow <= numRows; idxRow++)
+    for (var idxRow = userHeaderRow+1; idxRow <= numRows; idxRow++)
     {
         var rowData = {} //Object
         //Look at all the columns
@@ -142,12 +142,12 @@ function gscGenerateDateTextFromNumber(cellAsNumber)
 }
 
 //Return the colum header names and types
-function gscGetSpreadsheetColumnHeadersAndTypes(spreadsheet)
+function gscGetSpreadsheetColumnHeadersAndTypes(spreadsheet, userHeaderRow)
 {
     localAssert(!gscIsNullOrUndefined(spreadsheet), "no spreadsheet");
 
     //Parse up to 500 rows
-    var maxParseRow = spreadsheet.getMaxRowNumber();
+    var maxParseRow = spreadsheet.getMaxRowNumber()- userHeaderRow;
     if(maxParseRow > 500)
     {
         maxParseRow = 500;
