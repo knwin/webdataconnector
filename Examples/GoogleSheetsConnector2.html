@@ -157,7 +157,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
     <script src="https://public.tableau.com/javascripts/api/tableauwdc-1.1.0.js" type="text/javascript"></script>
     <script type="text/javascript" src="GoogleSheetsWDC.js"></script>
-    <script type="text/javascript" src="GoogleSheetParser.js"></script>
+    <script type="text/javascript" src="GoogleSheetParser2.js"></script>
 
     <!--Left Info window-->
     <div style="position:absolute; left:0; top:0; width:200px; background-color:#647CA0; min-height:2000px; ">
@@ -198,6 +198,7 @@
         <!--Connected sheet content-->
         <div>
             <h1>Step 2: Choose sheet to use as Tableau Data Source</h1>
+            <input type="text" name="userHeaderRow" value="1">
             <div id="gscTab_GoogleSheetsArea" style="width:100%; background-color:yellow">
                 <div class="gscInfoBox">The sheets inside your Google workbook will be listed here</div>
             </div>
